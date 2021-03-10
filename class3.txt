@@ -1,0 +1,64 @@
+In this lesson we are going to learn Qlabel. 
+
+The QLabel is one of the simplest widgets in PyQt with the ability to display lines of text. 
+This widget comes with many supporting functions and methods to allow us to retrieve and
+update this text whenever we want.
+
+for this now we will make another file in our directory and call it class3.py 
+then we will import important files that we would need in order to get started
+//////
+import sys
+from PyQt5.QtCore import QSize,Qt
+from PyQt5.QtWidgets import QApplication, QMainWindow,QPushButton,QLabel
+from PyQt5 import QtWidgets 
+//////
+
+now we are going to make our class as it is
+//////
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("My App")
+        button = QPushButton("Press me")
+        self.setFixedSize(QSize(700,500))
+        self.setCentralWidget(button)
+//////
+nOw we are going to update some changes and make a label
+ for this 
+ //////
+ app = QApplication(sys.argv)
+window = MainWindow()
+//////
+the various changes are:  we need to make a label we define a variable called label and pass 
+//////
+label = QtWidgets.QLabel(window)
+//////
+#Calling the QtWidgets.QLabel() creates a label object which we 
+#can use for our GUI. Passing the window object we created (win) into it’s parameters declares that the label is part of that window
+//////
+label.setText("Testing")
+//////
+A simple line of code that sets the Text for the label that gets displayed on the window
+//////
+label.adjustSize()
+//////
+#QLabels have a default size that is declared when they are created. 
+# For long lines of text, such as the one we passed into setText(), the default size is too small. Luckily, 
+# we just have the call a single method adjustSize() will cause the QLabel to automatically adjust it’s size.
+#  Not doing this will result in the text only appearing partially on the screen.
+
+//////
+label.move(100,200)
+//////
+This line determines the starting position of the QLabel when it appears on the screen. Passing (100, 100) will 
+# result in the top left hand corner of the label appearing at coordinates (100 , 100). Keep in mind that the top left hand corner of the screen has the position (0, 0).
+
+# move() is a very basic layout system, and not suitable for actual projects. PyQt5 comes with actual layouts, in charge of managing positions of the widgets inside
+#  the window. Learn more about them in our PyQt5 layout management tutorial.
+//////
+window.show()
+app.exec_()
+//////
+
+This is a small session in the next session we are going to take a look at the methods are available in in qlabel. 
+Thanks for watching i will see you in the next video 
